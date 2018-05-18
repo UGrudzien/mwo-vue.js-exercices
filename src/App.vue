@@ -42,6 +42,7 @@ export default {
 
 h1, h2 {
   font-weight: normal;
+  background-color: red;
 }
 
 ul {
