@@ -11,14 +11,16 @@
 
     <div v-else>
       <h1>Witaj, {{email}}</h1>
-      <button type = "text"  @click ="toggle()"> Wyloguj</button>
+      <button  @click ="toggle()"> Wyloguj</button>
     </div>
 
   </div>
 </template>
 
 <script>
+import "milligram";
 export default {
+   components: {LoginForm},
   name: 'app',
   data () {
     
@@ -33,12 +35,7 @@ export default {
   alertMyEmail() {
     alert(this.email);
   },
-  logIn(){
-    this.isAutenticated=true;
-  },
-  logOut(){
-    this.isAutenticated=false;
-  },
+
   toggle(){
     this.isAutenticated= !this.isAutenticated
   }
