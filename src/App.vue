@@ -8,7 +8,7 @@
 
           <login-form @login="logMeIn($event)" ></login-form>
 
-          <login-form @login="logMeIn($event)" :button-label="'Wejdź'"></login-form>
+          <!-- <login-form @login="logMeIn($event)" :button-label="'Wejdź'"></login-form> -->
           <!-- <login-form @login="logMeIn($event)" :button-label="'Wleć'"></login-form>
           <login-form @login="logMeIn($event)" :button-label="'Zaloguj się jak człowiek'"></login-form> -->
         </div>
@@ -16,7 +16,9 @@
 
 
         <div v-else>
-          <logout-form @logout="logMeOut($event)" :user="'Ulka'"></logout-form>
+          <logout-form @logout="logMeOut($event)" ></logout-form>
+          <meeting-page></meeting-page>
+         
        </div>
 
   </div>
@@ -27,8 +29,13 @@ import "milligram";
 
 import LoginForm from "./LoginForm";
 import LogoutForm from "./LogoutForm";
+import MeetingPage from "./meetings/MeetingPage";
+
+
+
+
 export default {
-   components: {LoginForm, LogoutForm},
+   components: {LoginForm, LogoutForm, MeetingPage},
   name: 'app',
   data () {
     
@@ -49,7 +56,7 @@ export default {
   },
   logMeIn(username) {
     this.isAutenticated = !this.isAutenticated;
-    this.authenticatedUsername = username;
+    this.user = username;
 },
   logMeOut(username){
         this.isAutenticated = username;
