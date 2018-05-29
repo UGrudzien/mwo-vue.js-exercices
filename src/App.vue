@@ -17,7 +17,7 @@
 
         <div v-else>
           <logout-form @logout="logMeOut($event)" ></logout-form>
-          <meeting-page></meeting-page>
+          <meeting-page :user="this.user"></meeting-page>
          
        </div>
 

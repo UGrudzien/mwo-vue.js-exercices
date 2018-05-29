@@ -5,6 +5,8 @@
             <input type="text" v-model="newMeeting.name">
             <label>Opis</label>
             <textarea v-model="newMeeting.description"></textarea>
+            <!-- <label>Uczestnicy</label>
+            <input type="email" v-model ="newMeeting.user"> -->
             <button>Dodaj</button>
         </form>
 </template>
