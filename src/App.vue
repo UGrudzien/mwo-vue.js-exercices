@@ -6,17 +6,17 @@
      <div v-if="!isAutenticated">
 
 
-          <login-form @login="logMeIn($event)" :button-label = "'Zaloguj'"></login-form>
+          <login-form @login="logMeIn($event)" ></login-form>
 
           <login-form @login="logMeIn($event)" :button-label="'Wejdź'"></login-form>
-          <login-form @login="logMeIn($event)" :button-label="'Wleć'"></login-form>
-          <login-form @login="logMeIn($event)" :button-label="'Zaloguj się jak człowiek'"></login-form>
+          <!-- <login-form @login="logMeIn($event)" :button-label="'Wleć'"></login-form>
+          <login-form @login="logMeIn($event)" :button-label="'Zaloguj się jak człowiek'"></login-form> -->
         </div>
 
 
 
         <div v-else>
-          <h1>Witaj, {{$event}}</h1>
+          <h1>Witaj, {{email}}</h1>
           <button  @click ="toggle()"> Wyloguj</button>
        </div>
 
