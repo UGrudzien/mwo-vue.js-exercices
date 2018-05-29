@@ -2,27 +2,24 @@
   <div id="app">
     <img src="./assets/logo.png" />
     <h1> Witaj w systemie zapisów na zajęcia</h1>
-
-<!--       
-    <div v-if="!isAutenticated">Zalogu sie emailem: 
-        <input type="email" v-model="email">
-        <button class="button button-clear" @click="toggle()">Zaloguj</button>
+       
+     <div v-if="!isAutenticated">
 
 
-   
-    </div>
-    <div v-else>
-      <h1>Witaj, {{email}}</h1>
-      <button  @click ="toggle()"> Wyloguj</button>
-    </div> -->
+          <login-form @login="logMeIn($event)"></login-form>
+
+          <login-form @login="logMeIn($event)" :button-label="'Wejdź'"></login-form>
+          <login-form @login="logMeIn($event)" :button-label="'Wleć'"></login-form>
+          <login-form @login="logMeIn($event)" :button-label="'Zaloguj się jak człowiek'"></login-form>
+        </div>
 
 
 
+        <div v-else>
+          <h1>Witaj, {{email}}</h1>
+          <button  @click ="toggle()"> Wyloguj</button>
+       </div>
 
-    <login-form @login="logMeIn($event)"></login-form>
-    <login-form @login="enter($event)" :button-label="'Wejdź'"></login-form>
-<login-form @login="enter($event)" :button-label="'Wleć'"></login-form>
-<login-form @login="enter($event)" :button-label="'Zaloguj się jak człowiek'"></login-form>
   </div>
 </template>
 
@@ -51,7 +48,8 @@ export default {
     this.isAutenticated= !this.isAutenticated
   },
   logMeIn(username) {
-  this.isAutenticated = username;
+    this.isAutenticated = !this.isAutenticated;
+    this.authenticatedUsername = username;
 }
 }
 

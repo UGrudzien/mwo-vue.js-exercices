@@ -8,9 +8,10 @@
 
 <script>
 export default {
+   props: ['buttonLabel'],
  data() {
      return {
-         props: ['buttonLabel'],
+        
          email: '',
        
      }
