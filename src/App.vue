@@ -16,8 +16,7 @@
 
 
         <div v-else>
-          <h1>Witaj, {{email}}</h1>
-          <button  @click ="toggle()"> Wyloguj</button>
+          <logout-form @logout="logMeOut($event)" :user="'Ulka'"></logout-form>
        </div>
 
   </div>
@@ -27,16 +26,17 @@
 import "milligram";
 
 import LoginForm from "./LoginForm";
+import LogoutForm from "./LogoutForm";
 export default {
-   components: {LoginForm},
+   components: {LoginForm, LogoutForm},
   name: 'app',
   data () {
     
     return {
       
-       email: "",
+      //  email: "",
         isAutenticated: false,
-    
+      user:"",
     };
   },
   methods: {
@@ -50,7 +50,11 @@ export default {
   logMeIn(username) {
     this.isAutenticated = !this.isAutenticated;
     this.authenticatedUsername = username;
-}
+},
+  logMeOut(username){
+        this.isAutenticated = username;
+        
+  }
 }
 
 }
