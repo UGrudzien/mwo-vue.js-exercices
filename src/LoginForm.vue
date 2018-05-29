@@ -10,13 +10,16 @@
 export default {
  data() {
      return {
-         email: ''
+         props: ['buttonLabel'],
+         email: '',
+       
      }
  },
  methods: {
      enter() {
          this.$emit('login', this.email);
      }
- }
+ },
+ 
 }
 </script>

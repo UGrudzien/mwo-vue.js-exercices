@@ -1,24 +1,35 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/logo.png" />
     <h1> Witaj w systemie zapisów na zajęcia</h1>
 
-      
-        <div v-if="!isAutenticated">Zalogu sie emailem: 
+<!--       
+    <div v-if="!isAutenticated">Zalogu sie emailem: 
         <input type="email" v-model="email">
         <button class="button button-clear" @click="toggle()">Zaloguj</button>
-        </div>
 
+
+   
+    </div>
     <div v-else>
       <h1>Witaj, {{email}}</h1>
       <button  @click ="toggle()"> Wyloguj</button>
-    </div>
+    </div> -->
 
+
+
+
+    <login-form @login="logMeIn($event)"></login-form>
+    <login-form @login="enter($event)" :button-label="'Wejdź'"></login-form>
+<login-form @login="enter($event)" :button-label="'Wleć'"></login-form>
+<login-form @login="enter($event)" :button-label="'Zaloguj się jak człowiek'"></login-form>
   </div>
 </template>
 
 <script>
 import "milligram";
+
+import LoginForm from "./LoginForm";
 export default {
    components: {LoginForm},
   name: 'app',
@@ -38,7 +49,10 @@ export default {
 
   toggle(){
     this.isAutenticated= !this.isAutenticated
-  }
+  },
+  logMeIn(username) {
+  this.isAutenticated = username;
+}
 }
 
 }
