@@ -12,8 +12,20 @@
             <tr v-for="meeting in meetings" :key="meeting.name">
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
-                <td >{{participant}}</td>
-                <td><button @click= save()>Zapisz się</button> </td>
+                <td>
+                   
+                   <participant-list :participantList="participants"></participant-list> </td>
+                <td>
+                    <span v-if="!isSingup">
+                        <button @click= save()>zapisz</button>
+                        </span>
+                    <span v-else>
+                        <button @click=resave()></button>
+                    </span>
+                
+                
+                
+                 </td>
             </tr>
         </tbody>
     </table>
@@ -21,20 +33,35 @@
 
 <script>
     // props: ['meetings', 'user']
+    import ParticipantList from "./ParticipantList";
 export default {
- props: ['meetings', 'participant'],
+ props: ['meetings', 'user'],
+  components:{ParticipantList},
 
  data() {
       return {
           meetings: [],
-          participant:"",
+          participant:"user",
+          participants:[
+            //   {id:"0", text:"Ula"}, 
+            //   {id:"1",text:"Ala"}
+          ],
+          isSingup: false,
       };
   },
-}
-// methods:{
-//     save(){
-     
-//     }
-// }
 
+methods:{
+    participants(){
+      this.participant=user
+    },
+    save(){
+        if(this.participant){
+            this.participants.push(this.participant);
+        }
+    },
+    resave(){
+        
+    }
+}
+}
 </script>
