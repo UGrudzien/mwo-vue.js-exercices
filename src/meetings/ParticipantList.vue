@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    props:[ participantList],
+    props:['participantList'],
 
   data() {
       return {
