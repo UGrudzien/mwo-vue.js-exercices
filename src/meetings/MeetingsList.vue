@@ -41,10 +41,10 @@ export default {
  data() {
       return {
           meetings: [],
-          participant:"user",
+          participant:"",
           participants:[
-            //   {id:"0", text:"Ula"}, 
-            //   {id:"1",text:"Ala"}
+              {id:"0", text:"Ula"}, 
+              {id:"1",text:"Ala"}
           ],
           isSingup: false,
       };
@@ -52,11 +52,12 @@ export default {
 
 methods:{
     participants(){
-      this.participant=user
+      this.participant=this.user
     },
     save(){
-        if(this.participant){
-            this.participants.push(this.participant);
+        if(this.user){
+            this.user = {id:"2", text:"user"}
+            this.participants.push(this.user);
         }
     },
     resave(){

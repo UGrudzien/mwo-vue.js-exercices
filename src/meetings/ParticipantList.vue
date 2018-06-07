@@ -1,6 +1,6 @@
 <template>
     <ul>
-     <li v-for="person in participantList" :key="person.id">{{person}}</li>   
+     <li v-for="person in participantList" :key="person.id">{{person.text}}</li>   
       </ul>
 </template>
 

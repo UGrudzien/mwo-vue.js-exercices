@@ -18,17 +18,18 @@ export default {
       return {
           meetings: [],
           participant:"",
+
       };
   },
   methods: {
       addNewMeeting(meeting) {
           this.meetings.push(meeting);
       },
-    //   addParticipant(){
-    //       return
-    //       this.participant = user
+      addParticipant(){
+          return
+          this.user
           
-    //   }
+      }
   }
 }
 </script>
